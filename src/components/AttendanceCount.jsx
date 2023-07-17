@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AppContext } from '../contexts/app_context'
 
-function AttendanceCount(props) {
+function AttendanceCount() {
+  let {learners} = useContext = {AppContext}
   return (
     <div>
-      <h3>Total Learners Present: {props.learners.length}</h3>
+      <h3>Total Learners Present: {learners.length}</h3>
     </div>
   )
 }

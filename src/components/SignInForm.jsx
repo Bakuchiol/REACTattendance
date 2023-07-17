@@ -1,6 +1,13 @@
-import React, { useState } from 'react'
+// import useContext hook and import context we're using
+import React, { useState, useContext } from 'react'
+import { AppContext } from '../contexts/app_context';
+// import App from '../App';
 
-function SignInForm(props) {
+function SignInForm() {
+
+  // destructure from useContext the states we want to use
+  let (learners, setLearners) = useContext(AppContext)
+
     // States to keep track of data
     const [data, setData] = useState('')
     // all logic (functions) goes before the return
@@ -12,7 +19,7 @@ function SignInForm(props) {
     const handleSubmit = (e) => {
         // prevents page from reloading upon form submission
         e.preventDefault()
-        props.setLearners([...props.learners, data])
+        setLearners([...learners, data])
         // add new data to old data using spread operator
         // console.log(data)
         // makes input empty again
